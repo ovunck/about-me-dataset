@@ -8,6 +8,7 @@ The dataset contains information for approximately 2000 users (1100 males and 90
 
 ## Exploratory Analysis
 I performed two exploratory analysis on the about.me dataset:
+
 1. Analyzing the connection between a person's username for different social media networks and whether gender makes a difference for his/her choices. More detailed information can be found [here](http://usernamevsfirstandlastname.herokuapp.com).
 
 2. Predicting social network username based on first and last names. More detailed information can be found [here](http://usernamevsfirstandlastname.herokuapp.com).

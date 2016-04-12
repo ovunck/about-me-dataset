@@ -57,17 +57,9 @@ def predictionRatio(df, metric="Levenshtein"):
     df_t = DataFrame()
     df_t['actual'] = df[soc_media_2].reset_index(drop=True)
     df_t['match'] = match.reset_index(drop=True)
-    # Find the correct matches
-    match_count = df_t.apply(lambda x: x[0] == x[1], axis=1).value_counts()
-    #True False value check (necessary if there is no match)
-    num_matches = 0
-    num_misses = 0
-    if True in match_count.index:
-        num_matches = match_count[True]
-    if False in match_count.index:
-        num_misses = match_count[False]
- 
-    ratio = float(num_matches)/(num_matches+num_misses)
+    # Find the ratio of correct matches
+    match_count = (df_t.actual == df_t.match).value_counts()
+    ratio = float(match_count[True]) / (match_count[True] + match_count[False])
     return ratio
 
 def getSocialMediaMatchRatios(csv_file, metric='Levenshtein'):
